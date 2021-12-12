@@ -6,8 +6,8 @@ import tw from 'tailwind-react-native-classnames';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { APIKEY } from '@env';
 import { setDestination, setOrigin } from '../slices/navSlice.js';
-import {  useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
+import {  useNavigation } from '@react-navigation/native';
 import NavFavourites from '../components/NavFavourites.js';
 import { Icon } from 'react-native-elements/dist/icons/Icon'
 import * as Location from 'expo-location';

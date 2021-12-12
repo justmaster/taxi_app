@@ -1,28 +1,37 @@
 import 'react-native-gesture-handler'
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Icon } from 'react-native-elements/dist/icons/Icon';
-
+import {  selectbookmart1, selectbookmart2} from "../slices/navSlice"
+import { useSelector } from "react-redux"
 
 
 // aq Back - dan fetch rom gaketdes useris mixedvit amis amushavebas bevri dro ar unda
 
-const data = [
-    {
-        id: "123",
-        icon: "home",
-        location: "Home",
-        destination: "Code Street, London, UK",
-    },
-    {
-        id: "456",
-        icon: "briefcase",
-        location: "Work",
-        destination: "London Eye, London, UK",
-    },
-];
+
+
+
+
 
 const NavFavourites = () => {
+    const bookmart1 = useSelector(selectbookmart1)
+    const bookmart2 = useSelector(selectbookmart2)
+
+    const data = [
+        {
+            id: "123",
+            icon: "home",
+            location: "Home",
+            destination: bookmart1,
+        },
+        {
+            id: "456",
+            icon: "briefcase",
+            location: "Work",
+            destination: bookmart2,
+        },
+    ];
+    
     return (
         <FlatList 
             data={data} 

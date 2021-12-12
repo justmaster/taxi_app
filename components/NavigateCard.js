@@ -39,7 +39,9 @@ const NavigateCard = () => {
                         enablePoweredByContainer={false}
                         query={{
                             key: APIKEY,
-                            language: "en"
+                            language: "en",
+                            types: 'geocode', // default: 'geocode'
+                            components: 'country:ge',
                         }}
                         nearbyPlacesAPI="GooglePlacesSearch"
                         debounce={400}

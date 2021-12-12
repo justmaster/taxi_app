@@ -68,7 +68,6 @@ const Map = () => {
             getTravelTime()
             :
             getTravelTimeDirect()
-            
     }, [origin, destination, APIKEY])
 
     

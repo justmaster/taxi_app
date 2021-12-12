@@ -13,6 +13,7 @@ import ProfileScreen from './components/drawercomponents/Profile';
 import { store } from './store';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
+import DrawerContent from './components/navigation/DrawerContent';
 
 const Drawer = createDrawerNavigator();
 
@@ -28,36 +29,46 @@ export default function App() {
             style={{ flex: 1}}
             keyboardVerticalOffset={Platform.OS === "ios" ? -64 : 0}
           >
+          
+          <Drawer.Navigator initialRouteName='Home' drawerContent={props => <DrawerContent {... props} />} >
 
-          <Drawer.Navigator initialRouteName='Home' >
             <Drawer.Screen 
               name="Home" 
               component={HomeScreen}
               options={{
-                headerShown: false
+                headerShown: false,
+                drawerItemStyle: { height: 0 }
               }}/>
+
             <Drawer.Screen 
               name="MapScreen" 
+              
               component={MapScreen}
               options={{
                 headerShown: false,
-                drawerItemStyle: { height: 0 }
+                drawerItemStyle: { height: 0 },
+                unmountOnBlur: true
                 
               }}/>
+
               <Drawer.Screen 
               name="Options" 
               component={OptionsScreen}
               options={{
                 headerShown: false,
-                
+                drawerItemStyle: { height: 0 },
+                unmountOnBlur: true,
               }}/>
+
               <Drawer.Screen 
               name="Profile" 
               component={ProfileScreen}
               options={{
                 headerShown: false,
-                
+                drawerItemStyle: { height: 0 },
+                unmountOnBlur: true,
               }}/>
+
           </Drawer.Navigator>
 
           </KeyboardAvoidingView>

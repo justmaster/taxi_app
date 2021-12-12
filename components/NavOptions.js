@@ -5,24 +5,27 @@ import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { selectOrigin } from "../slices/navSlice"
+import walletpic from "../assets/bitcoin_hero.png"
+import Carpic from "../assets/carpic.png"
 
 
 const data = [
     {
         id: "123",
         title: "Get a Ride",
-        image: "https://links.papareact.com/3pn",
+        image: Carpic,
         screen: "MapScreen",
     },
     {
         id: "456",
         title: "Offer a Deal",
-        image: "https://links.papareact.com/28w",
-        screen: "EatsScreen", // Change in future...
+        image: walletpic,
+        screen: "OfferScreen", // Change in future...
     },
 ];
 
 const NavOptions = () => {
+    const l = true
     const navigation = useNavigation();
     const origin = useSelector(selectOrigin)
     return (
@@ -41,7 +44,7 @@ const NavOptions = () => {
                     <View style={tw `${!origin && "opacity-20"}`}>
                         <Image 
                             style={styles.image}
-                            source={{ uri: item.image }}
+                            source={item.image }
                         />
                         <Text style={styles.title}>{item.title}</Text>
                         <Icon 
@@ -63,6 +66,7 @@ export default NavOptions
 
 
 const styles = StyleSheet.create({
+
     text: {
         fontSize: 10,
     },
